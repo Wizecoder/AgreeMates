@@ -9,5 +9,7 @@ Vagrant.configure("2") do |config|
 		puppet.manifest_file  = "init.pp"
 	end
 
+	config.vm.provision :shell,
+    inline: "wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh"
 	config.vm.provision :shell, :path => "shell/install_agreemates.sh"
 end
